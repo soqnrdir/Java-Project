@@ -13,6 +13,7 @@ public class Excercise04 {
 		//남은 연필 수
 		int pencilsLeft = pencils % students;
 		System.out.println(pencilsLeft);
+		//수정함
 
 	}
 
