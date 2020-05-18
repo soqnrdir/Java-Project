@@ -13,4 +13,3 @@ int intValue =10;
 double doubleValue = 5.5;
 double result = intValue + doubleValue; //result에 15.5가 저장
 }
-//수정
