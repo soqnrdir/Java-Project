@@ -36,7 +36,7 @@ public class ComputerVsHuman {
 		}
 		scanner.close();
 	
-	
+	//수정 
 			
 	}
 
