@@ -20,7 +20,7 @@ public class Quiz09 {
 
 		}
 		scanner.close();
-
+//수정 
 	}
 
 }
