@@ -27,10 +27,11 @@ public class exam103 {
 
 			totalDays += (year - 1900) * 365;
 			totalDays += (year - 1900) / 4;
-
-			if ((((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) && (month == 1 || month == 2)) == true)
-				totalDays += -1;
-
+			
+			if ((((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) && (month == 1 || month == 2)) == true) {
+				totalDays = totalDays + 1;
+			
+			}
 			switch (month) {
 			case 1:
 				totalDays += day;
@@ -68,8 +69,8 @@ public class exam103 {
 			case 12:
 				totalDays = totalDays += 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day;
 				break;
-
 			}
+			
 			String sevenDays = "";
 			switch (totalDays % 7) {
 			case 0:
