@@ -26,7 +26,7 @@ public class BankAccount {
 	public int getBalance() {
 		return balance;
 	}
-	public void isetBalance(int balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 

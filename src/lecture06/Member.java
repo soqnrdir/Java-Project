@@ -7,12 +7,10 @@ private	String id;
 private	String password;
 private	int age;
 
-	Member(String name, String id) {
-		this.name = name;
-		this.id = id;
-		
-		
-	}
+Member(String name, String id) {
+	this.name = name;
+	this.id = id;
+}
 	public String getName() {
 		return name;
 	}
