@@ -7,7 +7,7 @@ public class CarTest {
 		System.out.println("myCar의 색: " + myCar.getColor());
 		System.out.println("차의 최대 속력: " + Car.getMaxSpeed() + "km/h");
 		
-		System.out.print("첫 번째 sppedup(100.0km/h): ");
+		System.out.print("첫 번째 speedup(100.0km/h): ");
 		if (myCar.speedup(100.0)) {
 			System.out.print("속도 변경 가능, ");
 		} else {
@@ -15,7 +15,7 @@ public class CarTest {
 		}
 		System.out.println(" 현재 차의 속력: " + myCar.getSpeed() + "km/h");
 		
-		System.out.print("두 번째 sppedup(90.0km/h): ");
+		System.out.print("두 번째 speedup(90.0km/h): ");
 		if (myCar.speedup(90.0)) {
 			System.out.print("속도 변경 가능, ");
 		} else {
@@ -27,7 +27,7 @@ public class CarTest {
 		System.out.println("yourCar의 색: " + yourCar.getColor());
 		System.out.println("차의 최대 속력: " + Car.getMaxSpeed() + "km/h");
 		
-		System.out.print("첫 번째 sppedup(-100.0km/h): ");
+		System.out.print("첫 번째 speedup(-100.0km/h): ");
 		if (yourCar.speedup(-100.0)) {
 			System.out.print("속도 변경 가능, ");
 		} else {
@@ -35,7 +35,7 @@ public class CarTest {
 		}
 		System.out.println(" 현재 차의 속력: " + yourCar.getSpeed() + "km/h");
 		
-		System.out.print("두 번째 sppedup(210.0km/h): ");
+		System.out.print("두 번째 speedup(210.0km/h): ");
 		if (yourCar.speedup(210.0)) {
 			System.out.print("속도 변경 가능, ");
 		} else {
