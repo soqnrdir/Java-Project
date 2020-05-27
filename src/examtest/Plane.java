@@ -5,7 +5,7 @@ public class Plane {
 	private String model;
 	private int maxNumberOfPassengers;
 	private static int numberOfPlanes = 0;
-	
+		
 	public Plane(String manufacture, String model, int maxNumberOfPassengers) {
 		this.manufacture = manufacture;
 		this.model = model;
@@ -44,10 +44,11 @@ public class Plane {
 		this("록히든 마틴","F-22",-10);
 	}
 	
-	public String toString(){
-        return (manufacture+model+maxNumberOfPassengers);
-    
-    }
+	@Override
+	public String toString() {
+		return "Plane [manufacture=" + manufacture + ", model=" + model + ", maxNumberOfPassengers="
+				+ maxNumberOfPassengers + "]";
+	}
 	 public static int getNumberOfPlanes() {
  		return numberOfPlanes;
  	}

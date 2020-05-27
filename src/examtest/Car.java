@@ -1,5 +1,6 @@
 package examtest;
 
+//VO(value object), DTO(data transfer object), model, bean, item 데이터를 저장하는 }객체
 public class Car {
 	private double speed;
 	private String color;
@@ -35,10 +36,11 @@ public class Car {
 			return true;
 		}
 	}
-	
+
 	private static double killoToMile(double distance) {
 		return distance / 1.6;
 	}
+
 	private static double mileToKillo(double distance) {
 		return distance * 1.6;
 	}

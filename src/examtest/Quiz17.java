@@ -60,13 +60,7 @@ public class Quiz17 {
 		}
 		
 		System.out.println(totalDays);
-			
 				
-				
-		
-					
-			
-		
 	}
 
 }
