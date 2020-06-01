@@ -1,9 +1,11 @@
 package exam7;
 
-public class BankAccount {
+public abstract class BankAccount {
 
 	protected int balance;
 
+	public abstract String getAccountType();
+	
 	public BankAccount(int balance) {
 		this.balance = balance;
 	}
@@ -37,7 +39,7 @@ public class BankAccount {
 
 	@Override
 	public String toString() {
-		return "잔액: " + String.format("%,d",balance);
+		return  "잔액: " + String.format("%,d",balance);
 	}
 
 }

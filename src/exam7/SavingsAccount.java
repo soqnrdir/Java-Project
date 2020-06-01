@@ -19,6 +19,15 @@ public class SavingsAccount extends BankAccount {
 
 
 
+
+	@Override
+	public String getAccountType() {
+		
+		return "저축예금";
+	}
+
+
+
 				
 	}
 

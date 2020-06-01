@@ -29,5 +29,10 @@ public class CheckingAccount extends BankAccount {
 	public void setProtectedBy(SavingsAccount protectedBy) {
 		this.protectedBy = protectedBy;
 	}
+
+	@Override
+	public String getAccountType() {
+		return "당좌예금";
+	}
  
 }

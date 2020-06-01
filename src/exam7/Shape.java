@@ -1,17 +1,27 @@
 package exam7;
 
-public class Shape {
+public abstract class Shape implements Comparable<Shape> {
 
-	public Shape() {
+
+	public abstract double area();
+	
+	public abstract double perimeter();
+
+	@Override
+	public int compareTo(Shape o) {
+		if (perimeter() > o.perimeter()) {
+			return 1;
+		} else if (perimeter() == o.perimeter()) {
+			return 0;
+		} else {
+			return -1;
+		}
+	
 	}
-	public double area() {
-		return 0.0;
-	}
-	public double perimeter() {
-		return 0.0;
-	}
-	public double area(double area) {
+
 		
-		return 0.0;
+	
+		
 	}
-}
+
+
