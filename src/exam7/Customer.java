@@ -1,6 +1,6 @@
 package exam7;
 
-import java.util.Arrays;
+
 
 public class Customer {
 	private String firstName;

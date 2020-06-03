@@ -37,6 +37,7 @@ public class Person implements Comparable<Person> {
 	}
 	@Override
 	public int compareTo(Person o) {
+		//return name.compareTo(o.getName()); //이름 내림차순
 		if (height > o.height) {
 			return 1;
 		} else if (height == o.height) {

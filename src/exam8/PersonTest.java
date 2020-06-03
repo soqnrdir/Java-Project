@@ -1,5 +1,7 @@
 package exam8;
 
+import java.util.Arrays;
+
 public class PersonTest {
 	public static void main(String[] args) {
 		Person[] peoples = new Person[10];
@@ -14,10 +16,11 @@ public class PersonTest {
 		peoples[8] = new Person("김준용", 184.8);
 		peoples[9] = new Person("신일구", 188.3);
 		System.out.println("<배열에 저장된 사람들>");
+		Arrays.sort(peoples);
 		for (Person p : peoples) {
 			System.out.println(p);
 		}
-		System.out.println("가장 키가 큰 사람: " + Person.getTallest(peoples));
+		System.out.println("가장 키가 큰 사람: " + Person.getTallest(peoples)); //참고하려는 객체에 static을 붙여줘야함.
 	}
 
 }
