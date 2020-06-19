@@ -20,17 +20,16 @@ public class CurrentTImeController implements Initializable {
 
 		timeLabel.setText(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
 		// 시간이 경과됨을 출력하는 방법
+		// 개발자가 직접 만든 Thread에서는 Main Thread의 UI를 직접 변경할 수 없다.
 		Runnable runnable = new Runnable() {
 			@Override
 			public void run() {
 				while(true) {
+					//JavaFX Main Thread에서 UI를 변경할 수 있게 해준다.
 					Platform.runLater(new Runnable() {
-						
 						@Override
 						public void run() {
 							timeLabel.setText(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
-						
-							
 						}
 					});
 					try {
@@ -46,3 +45,6 @@ public class CurrentTImeController implements Initializable {
 		thread.start();
 	}
 }
+
+						
+							
