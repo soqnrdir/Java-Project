@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecture17.first.shiftItems.ShiftItemsController">
+   <children>
+      <Label layoutX="404.0" layoutY="14.0" text="항목 이동">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listView1" layoutX="43.0" layoutY="75.0" prefHeight="493.0" prefWidth="361.0" />
+      <ListView fx:id="listView2" layoutX="610.0" layoutY="75.0" prefHeight="493.0" prefWidth="361.0" />
+      <TextField fx:id="inputField" layoutX="307.0" layoutY="611.0" onKeyPressed="#keyPressed" prefHeight="26.0" prefWidth="335.0" />
+      <Button fx:id="insertButton" disable="true" layoutX="641.0" layoutY="611.0" mnemonicParsing="false" onAction="#insertAction" text="추가" />
+      <Button layoutX="459.0" layoutY="119.0" mnemonicParsing="false" onAction="#oneMoveRight" prefHeight="61.0" prefWidth="107.0" text="&gt;" />
+      <Button layoutX="459.0" layoutY="206.0" mnemonicParsing="false" onAction="#oneMoveLeft" prefHeight="61.0" prefWidth="107.0" text="&lt;" />
+      <Button layoutX="459.0" layoutY="291.0" mnemonicParsing="false" onAction="#allMoveRight" prefHeight="61.0" prefWidth="107.0" text="&gt;&gt;" />
+      <Button layoutX="459.0" layoutY="377.0" mnemonicParsing="false" onAction="#allMoveLeft" prefHeight="61.0" prefWidth="107.0" text="&lt;&lt;" />
+   </children>
+</AnchorPane>

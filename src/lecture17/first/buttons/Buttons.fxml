@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="320.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecture17.first.buttons.ButtonController">
+   <children>
+      <CheckBox fx:id="glassesCheck" layoutX="90.0" layoutY="50.0" mnemonicParsing="false" text="안경" userData="g001" />
+      <CheckBox fx:id="maskCheck" layoutX="90.0" layoutY="83.0" mnemonicParsing="false" text="마스크" userData="g002" />
+      <RadioButton layoutX="225.0" layoutY="50.0" mnemonicParsing="false" text="상" userData="2">
+         <toggleGroup>
+            <ToggleGroup fx:id="levelGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton layoutX="225.0" layoutY="74.0" mnemonicParsing="false" text="중" toggleGroup="$levelGroup" userData="1" />
+      <RadioButton layoutX="225.0" layoutY="101.0" mnemonicParsing="false" text="하" toggleGroup="$levelGroup" userData="0" />
+      <Button layoutX="194.0" layoutY="180.0" mnemonicParsing="false" onAction="#confirmAction" prefWidth="62.0" text="확인" textFill="RED" />
+      <ToggleButton layoutX="84.0" layoutY="134.0" mnemonicParsing="false" text="자바" userData="java">
+         <toggleGroup>
+            <ToggleGroup fx:id="languegeGroup" />
+         </toggleGroup></ToggleButton>
+      <ToggleButton layoutX="197.0" layoutY="134.0" mnemonicParsing="false" text="파이썬" toggleGroup="$languegeGroup" userData="pyhthon" />
+      <ToggleButton layoutX="300.0" layoutY="134.0" mnemonicParsing="false" prefWidth="70.0" text="스위프트" toggleGroup="$languegeGroup" userData="swift" />
+      <Label fx:id="resultLabel" layoutX="20.0" layoutY="213.0" prefHeight="99.0" prefWidth="440.0" text="선택결과" />
+   </children>
+</AnchorPane>

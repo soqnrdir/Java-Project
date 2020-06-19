@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="680.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecture17.first.survey.SurveyController">
+   <children>
+      <Label layoutX="6.0" layoutY="36.0" prefHeight="39.0" prefWidth="420.0" text="1. 현재 본인 또는 동거가족이 코로나-19 관련,자가격리 중입니까?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="6.0" layoutY="100.0" prefHeight="39.0" prefWidth="420.0" text="2. 최근 14일 이내 코로나-19 확진자 동선과 겹친 적이 있습니까?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="5.0" layoutY="163.0" prefHeight="39.0" prefWidth="465.0" text="3. 최근 14일 이내 본인 또는 동거가족이 해외에서 입국한 적이 있습니까?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="8.0" layoutY="223.0" prefHeight="39.0" prefWidth="465.0" text="4. 최근 14일 이내 코로나-19 집단 발병 지역에 방문했거나 연관사항이">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="8.0" layoutY="243.0" prefHeight="39.0" prefWidth="465.0" text="있습니까?(예:이태원클럽, 코인노래방, 주점, 음식점 등)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="5.0" layoutY="301.0" prefHeight="39.0" prefWidth="465.0" text="5. 현재 발열 증상이 있습니까?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="8.0" layoutY="359.0" prefHeight="39.0" prefWidth="465.0" text="6. 현재, 호흡기 등의 증상이 있습니까?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ToggleButton layoutX="22.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="189.0" text="예" userData="예">
+         <toggleGroup>
+            <ToggleGroup fx:id="yorN1" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="225.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="아니요 " toggleGroup="$yorN1" userData="아니요" />
+      <ToggleButton layoutX="25.0" layoutY="139.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="189.0" text="예 " userData="예">
+         <toggleGroup>
+            <ToggleGroup fx:id="yorN2" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="228.0" layoutY="139.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="아니요 " toggleGroup="$yorN2" userData="아니요" />
+      <ToggleButton layoutX="25.0" layoutY="202.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="189.0" text="예 " userData="예">
+         <toggleGroup>
+            <ToggleGroup fx:id="yorN3" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="228.0" layoutY="202.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="아니요 " toggleGroup="$yorN3" userData="아니요" />
+      <ToggleButton layoutX="25.0" layoutY="275.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="189.0" text="예 " userData="예">
+         <toggleGroup>
+            <ToggleGroup fx:id="yorN4" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="228.0" layoutY="275.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="아니요 " toggleGroup="$yorN4" userData="아니요" />
+      <ToggleButton layoutX="25.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="189.0" text="예 " userData="예">
+         <toggleGroup>
+            <ToggleGroup fx:id="yorN5" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="228.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="아니요 " toggleGroup="$yorN5" userData="아니요" />
+      <ToggleButton fx:id="yes" layoutX="26.0" layoutY="398.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="189.0" text="예 " userData="예">
+         <toggleGroup>
+            <ToggleGroup fx:id="yorN6" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="224.0" layoutY="398.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="아니요 " toggleGroup="$yorN6" userData="아니요" />
+      <AnchorPane fx:id="question7" layoutX="9.0" layoutY="424.0" visible="false">
+         <children>
+            <Label fx:id="sympton" prefHeight="39.0" prefWidth="465.0" text="7. 위 질문에 답변이 '예'일 경우">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="soreThroat" layoutX="13.0" layoutY="45.0" mnemonicParsing="false" text="인후통" userData="인후통" />
+            <CheckBox fx:id="difficultyBreathing" layoutX="216.0" layoutY="45.0" mnemonicParsing="false" text="호흡곤란" userData="호흡곤란" />
+            <CheckBox fx:id="phlegm" layoutX="13.0" layoutY="70.0" mnemonicParsing="false" text="가래/객혈" userData="가래/객혈" />
+            <CheckBox fx:id="musclePain" layoutX="216.0" layoutY="70.0" mnemonicParsing="false" text="근육통" userData="근육통" />
+            <CheckBox fx:id="whirl" layoutX="13.0" layoutY="98.0" mnemonicParsing="false" text="어지러움" userData="어지러움" />
+            <CheckBox fx:id="throwUp" layoutX="216.0" layoutY="98.0" mnemonicParsing="false" text="구토" userData="구토" />
+            <CheckBox fx:id="sickness" layoutX="13.0" layoutY="124.0" mnemonicParsing="false" text="오심(메스꺼움)" userData="오심(메스꺼움)" />
+            <CheckBox fx:id="diarrhea" layoutX="216.0" layoutY="124.0" mnemonicParsing="false" text="설사" userData="설사" />
+            <CheckBox fx:id="headache" layoutX="13.0" layoutY="150.0" mnemonicParsing="false" text="두통" userData="두통" />
+            <CheckBox fx:id="tasteSmellParalysis" layoutX="216.0" layoutY="150.0" mnemonicParsing="false" text="미각/후각마비" userData="미각/후각마비" />
+            <CheckBox fx:id="cough" layoutX="13.0" layoutY="176.0" mnemonicParsing="false" text="기침" userData="기침" />
+            <CheckBox fx:id="etc" layoutX="216.0" layoutY="176.0" mnemonicParsing="false" text="기타" userData="기타" />
+            <TextField fx:id="etcText" layoutX="270.0" layoutY="172.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="save" layoutX="14.0" layoutY="631.0" mnemonicParsing="false" onAction="#surveySave" prefHeight="26.0" prefWidth="450.0" text="저장" />
+      <Label fx:id="todayDate" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="450.0" text="오늘날짜">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

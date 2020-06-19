@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="480.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecture17.first.quiz.QuizController">
+   <children>
+      <Label layoutX="168.0" layoutY="14.0" prefHeight="59.0" prefWidth="308.0" text="           퀴즈 문제 " textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="65.0" prefHeight="33.0" prefWidth="595.0" text="1. 다음 중 JavaFX에서 Container에 해당하는 것을 모두 고르시오.">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="181.0" prefHeight="33.0" prefWidth="595.0" text="2. JavaFX는 매우 어렵다.">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="AnchorPane" layoutX="52.0" layoutY="115.0" mnemonicParsing="false" text="AnchorPane" userData="g001" />
+      <CheckBox fx:id="ComboBox" layoutX="168.0" layoutY="115.0" mnemonicParsing="false" text="ComboBox" userData="g002" />
+      <CheckBox fx:id="CheckBox" layoutX="278.0" layoutY="115.0" mnemonicParsing="false" text="CheckBox" userData="g003" />
+      <CheckBox fx:id="HBox" layoutX="394.0" layoutY="115.0" mnemonicParsing="false" text="HBox" userData="g004" />
+      <CheckBox fx:id="ListView" layoutX="469.0" layoutY="115.0" mnemonicParsing="false" text="ListView" userData="g005" />
+      <RadioButton layoutX="40.0" layoutY="240.0" mnemonicParsing="false" text="어렵다" userData="difficult">
+         <toggleGroup>
+            <ToggleGroup fx:id="answer" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="118.0" layoutY="240.0" mnemonicParsing="false" text="쉽다" toggleGroup="$answer" userData="easy" />
+      <Label fx:id="resultLable" layoutX="31.0" layoutY="378.0" prefHeight="86.0" prefWidth="618.0" />
+      <Button layoutX="309.0" layoutY="284.0" mnemonicParsing="false" onAction="#confirmAction" text="확인" />
+   </children>
+</AnchorPane>
