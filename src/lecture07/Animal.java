@@ -1,6 +1,6 @@
 package lecture07;
 	//추상 클래스
-public abstract  class Animal {
+public abstract class Animal {
 	//필드
     String kind;
 	

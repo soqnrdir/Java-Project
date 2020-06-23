@@ -6,12 +6,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="200.0" prefWidth="300.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="loginPane" prefHeight="200.0" prefWidth="300.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecture17.first.login.LoginController">
    <children>
       <Label id="welcome-text" alignment="CENTER" layoutX="13.0" layoutY="13.0" prefHeight="27.0" prefWidth="273.0" text="Welcome" />
-      <TextField layoutX="14.0" layoutY="59.0" prefHeight="26.0" prefWidth="273.0" promptText="아이디" />
-      <Button layoutX="73.0" layoutY="147.0" mnemonicParsing="false" styleClass="button" text="로그인" />
-      <Button layoutX="181.0" layoutY="147.0" mnemonicParsing="false" styleClass="button" text="취소" />
-      <PasswordField layoutX="13.0" layoutY="100.0" prefHeight="26.0" prefWidth="273.0" promptText="패스워드" />
+      <TextField fx:id="idField" layoutX="14.0" layoutY="59.0" prefHeight="26.0" prefWidth="273.0" promptText="아이디" />
+      <Button layoutX="73.0" layoutY="147.0" mnemonicParsing="false" styleClass="button" onAction="#loginAction" text="로그인" />
+      <Button layoutX="181.0" layoutY="147.0" mnemonicParsing="false" onAction="#cancelAction" styleClass="button" text="취소" />
+      <PasswordField fx:id="pwField" layoutX="13.0" layoutY="100.0" prefHeight="26.0" prefWidth="273.0" promptText="패스워드" />
    </children>
 </AnchorPane>
