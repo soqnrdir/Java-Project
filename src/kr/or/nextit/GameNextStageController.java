@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javafx.animation.Animation;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class GameNextStageController implements Initializable {
 	private int slimeTotHp = 100;
@@ -76,6 +79,8 @@ public class GameNextStageController implements Initializable {
 	private MediaPlayer miss;
 	private MediaPlayer criticalAttack;
 	private MediaPlayer nextPage;
+	private TranslateTransition transition;
+	private TranslateTransition transition2;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -90,16 +95,12 @@ public class GameNextStageController implements Initializable {
 		critical = new Image(getClass().getResource("images/critical.png").toExternalForm());
 		potion = new Image(getClass().getResource("images/potion.png").toExternalForm());
 		
-		
-		
-		
 		String path = "/home/pc16/Desktop/프로젝트mp3/startVs.mp3";
 		String path2 = "/home/pc16/Desktop/프로젝트mp3/selectWappon.mp3";
 		String path3 = "/home/pc16/Desktop/프로젝트mp3/Tada.mp3";
 		String path4 = "/home/pc16/Desktop/프로젝트mp3/fail.mp3";
 		String path5 = "/home/pc16/Desktop/프로젝트mp3/clear.mp3";
 		
-		  
 		media = new Media(new File(path).toURI().toString());
 		media2 = new Media(new File(path2).toURI().toString());
 		media3 = new Media(new File(path3).toURI().toString());
@@ -111,6 +112,7 @@ public class GameNextStageController implements Initializable {
 		success = new MediaPlayer(media3);
 		fail = new MediaPlayer(media4);
 		nextPage = new MediaPlayer(media5);
+		
 	}
 	
 	
@@ -151,9 +153,28 @@ public class GameNextStageController implements Initializable {
 		slimeHp.setText(slimeTotHp + "HP");
 		playerHp.setText(slimeTotHp + "HP");
 		attackButton.setDisable(false);
+		
+		transition = new TranslateTransition();
+		transition.setDuration(Duration.millis(500));
+		transition.setToX(40);
+		transition.setToY(-30);
+		transition.setAutoReverse(true);
+		transition.setCycleCount(Animation.INDEFINITE);
+		transition.setNode(slimeLevel2);
+		transition.play(); 
+		
+		transition2 = new TranslateTransition();
+		transition2.setDuration(Duration.millis(500));
+		transition2.setToX(40);
+		transition2.setToY(-30);
+		transition2.setAutoReverse(true);
+		transition2.setCycleCount(Animation.INDEFINITE);
+		transition2.setNode(selectWappon);
+		transition2.play(); 
 	}
 
-	@FXML public void attackAction() {
+	@FXML public void attackAction() { 
+		
 		String path = "/home/pc16/Desktop/프로젝트mp3/attack.mp3";
 		String path2 = "/home/pc16/Desktop/프로젝트mp3/heal.mp3";
 		String path3 = "/home/pc16/Desktop/프로젝트mp3/water.mp3";
@@ -170,43 +191,41 @@ public class GameNextStageController implements Initializable {
 		miss = new MediaPlayer(media4);
 		
 		animationImage.setImage(null);
-		int playerAttack = (int) (Math.random() * 5);
+		int playerAttack = (int) (Math.random() * 4);
 		if (slimeTotHp > 0) {
-			if (playerAttack <= 1) {
-				
-				
+			if (playerAttack == 0) {
 				attackDefalut.play();
 				animationImage.setImage(attack);
 				playerDamaged.setText("");
 				defenseButton.setDisable(false);
 				attackButton.setDisable(true);
 				vsLabel1.setText("<일반공격!>");
-				vsLabel2.setText("플레이어가 화염슬라임에게 25의 데미지를 주었습니다.");
-				slimeDamaged.setText("-25HP");
-				slimeHp.setText(slimeTotHp - 25 + "HP");
-				temp = slimeTotHp - 25;
+				vsLabel2.setText("플레이어가 화염슬라임에게 20의 데미지를 주었습니다.");
+				slimeDamaged.setText("-20HP");
+				slimeHp.setText(slimeTotHp - 20 + "HP");
+				temp = slimeTotHp - 20;
 				slimeTotHp = temp;
 				if (slimeTotHp <= 0) {
 					defenseButton.setDisable(true);
 					resultButton.setDisable(false);
 				}
-			} else if (playerAttack == 2) {
+			} else if (playerAttack == 1) {
 				waterAttack.play();
 				animationImage.setImage(spitting);
 				playerDamaged.setText("");
 				defenseButton.setDisable(false);
 				attackButton.setDisable(true);
 				vsLabel1.setText("<물공격!>");
-				vsLabel2.setText("플레이어가 화염슬라임에게 35의 데미지를 주었습니다.");
-				slimeDamaged.setText("-35HP");
-				slimeHp.setText(slimeTotHp - 35 + "HP");
-				temp = slimeTotHp - 35;
+				vsLabel2.setText("플레이어가 화염슬라임에게 30의 데미지를 주었습니다.");
+				slimeDamaged.setText("-30HP");
+				slimeHp.setText(slimeTotHp - 30 + "HP");
+				temp = slimeTotHp - 30;
 				slimeTotHp = temp;
 				if (slimeTotHp <= 0) {
 					defenseButton.setDisable(true);
 					resultButton.setDisable(false);
 				}
-			} else if (playerAttack == 3) {
+			} else if (playerAttack == 2) {
 				heal.play();
 				animationImage.setImage(potion);
 				playerDamaged.setText("");
@@ -244,6 +263,7 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void defenseAction() {
+		animationImage.setImage(null);
 		String path = "/home/pc16/Desktop/프로젝트mp3/fire.mp3";
 		String path2 = "/home/pc16/Desktop/프로젝트mp3/critical.mp3";
 		String path3 = "/home/pc16/Desktop/프로젝트mp3/miss.mp3";
@@ -255,8 +275,6 @@ public class GameNextStageController implements Initializable {
 		fireAttack = new MediaPlayer(media);
 		criticalAttack = new MediaPlayer(media2);
 		miss = new MediaPlayer(media3);
-		
-		animationImage.setImage(null);
 		int slimeAttack = (int) (Math.random() * 5);
 		if (playerTotHp > 0) {
 			if (slimeAttack <= 2) {
@@ -314,6 +332,7 @@ public class GameNextStageController implements Initializable {
 	@FXML public void resultAction() {
 		animationImage.setImage(null);
 		if (playerTotHp <= 0) {
+			transition2.stop();
 			fail.play();
 			resultButton.setDisable(true);
 			vsLabel1.setText("");
@@ -325,6 +344,7 @@ public class GameNextStageController implements Initializable {
 			restartButton.setDisable(false);
 		}
 		if (slimeTotHp <= 0) {
+			transition.stop();
 			success.play();
 			resultButton.setDisable(true);
 			playerDamaged.setText("");
@@ -338,6 +358,8 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void nextStageAction() {
+		transition.stop();
+		transition2.stop();
 		nextPage.play();
 	     Stage stage = (Stage)nextStageButton.getScene().getWindow();
 	     Parent second;
@@ -354,6 +376,8 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void restartAction() {
+		transition.stop();
+		transition2.stop();
 		Stage stage = (Stage)restartButton.getScene().getWindow();
 	     Parent second;
 		try {

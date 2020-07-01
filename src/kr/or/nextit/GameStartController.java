@@ -6,10 +6,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import com.sun.org.apache.xml.internal.security.keys.content.KeyValue;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -88,12 +85,14 @@ public class GameStartController implements Initializable {
 	private MediaPlayer miss;
 	private MediaPlayer criticalAttack;
 	private MediaPlayer nextPage;
+	private MediaPlayer healing;
 	private Media media;
 	private Media media2;
 	private Media media3;
 	private Media media4;
 	private Media media5;
 	private TranslateTransition transition;
+	private TranslateTransition transition2;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -127,13 +126,6 @@ public class GameStartController implements Initializable {
 	fail = new MediaPlayer(media4);
 	nextPage = new MediaPlayer(media5);
 	
-	transition = new TranslateTransition();
-	transition.setDuration(Duration.seconds(1));
-	transition.setToX(20);
-	transition.setToY(-10);
-	transition.setAutoReverse(true);
-	transition.setCycleCount(1);
-	transition.setNode(slimeLevel1);
 	
 	}
 	@FXML public void knifeClick() {
@@ -175,6 +167,25 @@ public class GameStartController implements Initializable {
 		slimeHp.setText(slimeTotHp + "HP");
 		playerHp.setText(slimeTotHp + "HP");
 		attackButton.setDisable(false);
+		
+		transition = new TranslateTransition();
+		transition.setDuration(Duration.millis(500));
+		transition.setToX(30);
+		transition.setToY(-50);
+		transition.setAutoReverse(true);
+		transition.setCycleCount(Animation.INDEFINITE);
+		transition.setNode(slimeLevel1);
+		transition.play(); 
+		
+		transition2 = new TranslateTransition();
+		transition2.setDuration(Duration.millis(500));
+		transition2.setToX(30);
+		transition2.setToY(-50);
+		transition2.setAutoReverse(true);
+		transition2.setCycleCount(Animation.INDEFINITE);
+		transition2.setNode(selectWappon);
+		transition2.play(); 
+
 	
 	}
 	@FXML
@@ -192,7 +203,7 @@ public class GameStartController implements Initializable {
 		
 		attackDefalut = new MediaPlayer(media);
 		fireAttack = new MediaPlayer(media2);
-		waterAttack = new MediaPlayer(media3);
+		healing = new MediaPlayer(media3);    
 		miss = new MediaPlayer(media4);
 		
 		animationImage.setImage(null);
@@ -231,6 +242,7 @@ public class GameStartController implements Initializable {
 					resultButton.setDisable(false);
 				}
 			} else if (playerAttack == 3) {
+				healing.play();
 				animationImage.setImage(potion);
 				playerDamaged.setText("");
 				defenseButton.setDisable(false);
@@ -268,6 +280,7 @@ public class GameStartController implements Initializable {
 
 	@FXML
 	public void defenseAction() {
+
 		String path = "/home/pc16/Desktop/프로젝트mp3/water.mp3";
 		String path2 = "/home/pc16/Desktop/프로젝트mp3/critical.mp3";
 		String path3 = "/home/pc16/Desktop/프로젝트mp3/miss.mp3";
@@ -338,6 +351,7 @@ public class GameStartController implements Initializable {
 	public void resultAction() {
 		animationImage.setImage(null);
 		if (playerTotHp <= 0) {
+			transition2.stop(); 
 			fail.play();
 			resultButton.setDisable(true);
 			vsLabel1.setText("");
@@ -349,6 +363,7 @@ public class GameStartController implements Initializable {
 			restartButton.setDisable(false);
 		}
 		if (slimeTotHp <= 0) {
+			transition.stop(); 
 			success.play();
 			resultButton.setDisable(true);
 			playerDamaged.setText("");
@@ -362,6 +377,8 @@ public class GameStartController implements Initializable {
 	}
 
 	@FXML public void nextStageAction() {
+		transition.stop(); 
+		transition2.stop(); 
 		nextPage.play();
 	     Stage stage = (Stage)nextStageButton.getScene().getWindow();
 	     Parent second;
@@ -378,6 +395,8 @@ public class GameStartController implements Initializable {
 	}   
 
 	@FXML public void restartAction() {
+		transition.stop(); 
+		transition2.stop(); 
 	     Stage stage = (Stage)restartButton.getScene().getWindow();
 	     Parent second;
 		try {
