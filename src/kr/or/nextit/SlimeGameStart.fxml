@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="gamePane" prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.nextit.GameStartController">
@@ -14,12 +16,20 @@
          <font>
             <Font size="40.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#0d72dd" />
+                  <Stop color="#0dd90d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <Button fx:id="fightButton" disable="true" layoutX="276.0" layoutY="10.0" mnemonicParsing="false" onAction="#fightAction" prefHeight="62.0" prefWidth="108.0" text="대결시작!" textFill="RED">
+      <Button fx:id="fightButton" disable="true" layoutX="276.0" layoutY="10.0" mnemonicParsing="false" onAction="#fightAction" prefHeight="62.0" prefWidth="108.0" style="-fx-background-color: white;" text="대결시작!" textFill="RED">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Label fx:id="slime1Name" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="422.0" layoutY="371.0" prefHeight="41.0" prefWidth="188.0">
+      <Label fx:id="slime1Name" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="422.0" layoutY="371.0" prefHeight="41.0" prefWidth="188.0" textFill="#e80505">
          <font>
             <Font size="18.0" />
          </font>
@@ -29,12 +39,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="attackButton" disable="true" layoutX="274.0" layoutY="412.0" mnemonicParsing="false" onAction="#attackAction" prefHeight="62.0" prefWidth="92.0" text="공격">
+      <Button fx:id="attackButton" disable="true" layoutX="274.0" layoutY="412.0" mnemonicParsing="false" onAction="#attackAction" prefHeight="62.0" prefWidth="92.0" style="-fx-background-color: pink;" text="공격" visible="false">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="defenseButton" disable="true" layoutX="274.0" layoutY="496.0" mnemonicParsing="false" onAction="#defenseAction" prefHeight="62.0" prefWidth="92.0" text="방어">
+      <Button fx:id="defenseButton" disable="true" layoutX="274.0" layoutY="496.0" mnemonicParsing="false" onAction="#defenseAction" prefHeight="62.0" prefWidth="92.0" style="-fx-background-color: skyblue;" text="방어" visible="false">
          <font>
             <Font size="24.0" />
          </font>
@@ -63,21 +73,41 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="resultButton" disable="true" layoutX="274.0" layoutY="474.0" mnemonicParsing="false" onAction="#resultAction" prefHeight="26.0" prefWidth="92.0" text="대결결과" />
+      <Button fx:id="resultButton" disable="true" layoutX="274.0" layoutY="474.0" mnemonicParsing="false" onAction="#resultAction" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: gold;" text="대결결과" visible="false" />
       <ImageView fx:id="animationImage" fitHeight="133.0" fitWidth="129.0" layoutX="266.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="nextStageButton" disable="true" layoutX="530.0" layoutY="564.0" mnemonicParsing="false" onAction="#nextStageAction" prefHeight="62.0" prefWidth="96.0" text="다음스테이지" />
-      <Button fx:id="restartButton" disable="true" layoutX="14.0" layoutY="564.0" mnemonicParsing="false" onAction="#restartAction" prefHeight="62.0" prefWidth="96.0" text="재도전" />
-      <Button fx:id="knifeButton" layoutX="464.0" layoutY="41.0" mnemonicParsing="false" onAction="#knifeClick" prefHeight="26.0" prefWidth="80.0" text="검" />
+      <Button fx:id="nextStageButton" disable="true" layoutX="530.0" layoutY="564.0" mnemonicParsing="false" onAction="#nextStageAction" prefHeight="62.0" prefWidth="96.0" style="-fx-background-color: gold;" text="다음스테이지" visible="false" />
+      <Button fx:id="restartButton" disable="true" layoutX="14.0" layoutY="564.0" mnemonicParsing="false" onAction="#restartAction" prefHeight="62.0" prefWidth="96.0" style="-fx-background-color: gold;" text="재도전" visible="false" />
+      <Button fx:id="knifeButton" layoutX="464.0" layoutY="41.0" mnemonicParsing="false" onAction="#knifeClick" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: white;" text="검" />
       <Label fx:id="selectLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="464.0" layoutY="6.0" prefHeight="26.0" prefWidth="166.0" text="무기(스킨)를 선택하세요.">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="axeButton" layoutX="547.0" layoutY="41.0" mnemonicParsing="false" onAction="#axeClick" prefHeight="26.0" prefWidth="80.0" text="도끼" />
+      <Button fx:id="axeButton" layoutX="547.0" layoutY="41.0" mnemonicParsing="false" onAction="#axeClick" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: white;" text="도끼" />
       <Label fx:id="vsLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="128.0" prefHeight="26.0" prefWidth="612.0" textFill="#074bd3">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <Button fx:id="defaultAttakBt" disable="true" layoutX="51.0" layoutY="412.0" mnemonicParsing="false" onAction="#defaultAttackAction" prefHeight="62.0" prefWidth="92.0" style="-fx-background-color: white;" text="일반공격" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="specialButton" disable="true" layoutX="143.0" layoutY="412.0" mnemonicParsing="false" onAction="#specialAction" prefHeight="62.0" prefWidth="92.0" style="-fx-background-color: silver;" text="속성공격" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="healPButton" disable="true" layoutX="51.0" layoutY="469.0" mnemonicParsing="false" onAction="#healPAction" prefHeight="62.0" prefWidth="92.0" style="-fx-background-color: yellowgreen;" text="체력회복" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="ultimateButton" disable="true" layoutX="143.0" layoutY="469.0" mnemonicParsing="false" onAction="#ultimateAction" prefHeight="62.0" prefWidth="92.0" style="-fx-background-color: violet;" text="필살기" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

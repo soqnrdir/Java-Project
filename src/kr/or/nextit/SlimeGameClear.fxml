@@ -2,16 +2,34 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.nextit.GameClearController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="289.0" prefHeight="225.0" prefWidth="373.0" text="      축하합니다!!&#10;STAGE ALL CLEAR!&#10;&#10;" textFill="#ff00e2">
+      <Label fx:id="congraduation" alignment="CENTER" contentDisplay="CENTER" layoutY="409.0" prefHeight="130.0" prefWidth="373.0" text="      축하합니다!!&#10;STAGE ALL CLEAR!&#10;&#10;">
          <font>
             <Font size="36.0" />
          </font>
+         <effect>
+            <DropShadow color="RED" />
+         </effect>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#fc45e9" />
+                  <Stop color="#fc45e9" offset="0.007407407407407408" />
+                  <Stop color="#ad0fc9" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <Button layoutX="91.0" layoutY="567.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="51.0" prefWidth="153.0" text="게임종료" />
+      <Button layoutX="91.0" layoutY="567.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="51.0" prefWidth="153.0" style="-fx-background-color: gold;" text="게임종료" />
+      <ImageView fx:id="slime1Image" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="slime2image" fitHeight="150.0" fitWidth="200.0" layoutX="273.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

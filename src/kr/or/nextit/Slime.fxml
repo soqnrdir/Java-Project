@@ -4,23 +4,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="MainPane" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.nextit.SlimeController">
    <children>
-      <Label fx:id="startLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="360.0" prefHeight="26.0" prefWidth="340.0" text="게임을 시작합니다">
+      <Label fx:id="startLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="360.0" prefHeight="26.0" prefWidth="340.0" style="-fx-border-color: black;" text=" 게임을 시작합니다">
          <font>
             <Font size="19.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#0175f2" />
+                  <Stop color="#0175f2" offset="0.007407407407407408" />
+                  <Stop color="#ff0909" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <Button fx:id="nextButton" layoutX="438.0" layoutY="360.0" mnemonicParsing="false" onAction="#nextAction" text="다음" />
-      <Button fx:id="startButton" disable="true" layoutX="225.0" layoutY="322.0" mnemonicParsing="false" onAction="#StartAction" text="START" />
+      <Button fx:id="nextButton" layoutX="438.0" layoutY="360.0" mnemonicParsing="false" onAction="#nextAction" style="-fx-background-color: gold;" text="다음" />
+      <Button fx:id="startButton" disable="true" layoutX="225.0" layoutY="322.0" mnemonicParsing="false" onAction="#StartAction" style="-fx-background-color: gold;" text="START" />
       <Label fx:id="explainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="296.0" prefHeight="26.0" prefWidth="493.0">
          <font>
             <Font size="19.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#e30909" />
+                  <Stop color="#fc640c" offset="0.1" />
+                  <Stop color="#d3da09" offset="0.2003703703703704" />
+                  <Stop color="#71fc00" offset="0.30518518518518517" />
+                  <Stop color="#22ff05" offset="0.4111111111111112" />
+                  <Stop color="#05ff41" offset="0.49851851851851864" />
+                  <Stop color="#05ffa0" offset="0.5959259259259259" />
+                  <Stop color="#05ffef" offset="0.6937037037037038" />
+                  <Stop color="#05d5ff" offset="0.7977777777777777" />
+                  <Stop color="#054bff" offset="0.8955555555555557" />
+                  <Stop color="#d502f5" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <Label contentDisplay="CENTER" layoutX="141.0" layoutY="240.0" text="Kill The Slime" textFill="RED">
+      <Label id="slime-text" fx:id="mainLabel" contentDisplay="CENTER" layoutX="141.0" layoutY="240.0" text="Kill The Slime" textFill="RED">
          <font>
             <Font size="34.0" />
          </font>

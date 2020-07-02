@@ -18,7 +18,6 @@ public class Main extends Application {
 			primaryStage.setTitle("Kill the Slime");
 			primaryStage.show();
 		} catch(Exception e) {
-			
 			e.printStackTrace(); 
 		}
 	}

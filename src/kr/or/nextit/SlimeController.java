@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.animation.Animation;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 public class SlimeController implements Initializable {
 	@FXML
 	Label startLabel;
@@ -28,6 +32,8 @@ public class SlimeController implements Initializable {
 	Label explainLabel;
 	private MediaPlayer mainBG;
 	private MediaPlayer nextPage;
+	private TranslateTransition transition;
+	@FXML Label mainLabel;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -36,7 +42,6 @@ public class SlimeController implements Initializable {
 	Media media = new Media(new File(path).toURI().toString());
 	Media media2 = new Media(new File(path2).toURI().toString());
 	
-	
 	mainBG = new MediaPlayer(media);
 	nextPage = new MediaPlayer(media2);
 	
@@ -44,6 +49,15 @@ public class SlimeController implements Initializable {
 
 	@FXML
 	public void nextAction() {
+		transition = new TranslateTransition();
+		transition.setDuration(Duration.millis(500));
+		transition.setToY(-30);
+		transition.setAutoReverse(true);
+		transition.setCycleCount(Animation.INDEFINITE);
+		transition.setNode(mainLabel);
+		transition.play();
+		
+		nextButton.setVisible(false);
 		mainBG.play();
 		nextButton.setDisable(true);
 		explainLabel.setText("Welcome To The Slime World!");
@@ -53,6 +67,7 @@ public class SlimeController implements Initializable {
 
 	@FXML
 	public void StartAction() {
+		transition.stop();
 		nextPage.play();
 		mainBG.stop();
 		Stage stage = (Stage) startButton.getScene().getWindow();

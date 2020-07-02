@@ -29,9 +29,9 @@ public class GameNextStageController implements Initializable {
 	private int slimeTotHp = 100;
 	private int playerTotHp = 100;
 	private int temp;
+	private int cnt = 0;
 	private Image ironMace;
 	private Image hammer;
-	private Image slime2;
 	private Image vsFight;
 	private Image shield;
 	private Image potion;
@@ -39,7 +39,8 @@ public class GameNextStageController implements Initializable {
 	private Image critical;
 	private Image attack;
 	private Image fireBlow;
-
+	private Image slime2;
+	private Image ultimate;
 	
 	@FXML Button fightButton;
 	@FXML Label selectLabel;
@@ -68,7 +69,7 @@ public class GameNextStageController implements Initializable {
 	private Media media4;
 	private Media media5;
 	
-	private MediaPlayer heal;
+	private MediaPlayer healing;
 	private MediaPlayer startVs;
 	private MediaPlayer selectedWappon;
 	private MediaPlayer success;
@@ -79,8 +80,13 @@ public class GameNextStageController implements Initializable {
 	private MediaPlayer miss;
 	private MediaPlayer criticalAttack;
 	private MediaPlayer nextPage;
+	private MediaPlayer ultimateAttack;
 	private TranslateTransition transition;
 	private TranslateTransition transition2;
+	@FXML Button defaultAttakBt;
+	@FXML Button specialButton;
+	@FXML Button healPButton;
+	@FXML Button ultimateButton;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -94,6 +100,7 @@ public class GameNextStageController implements Initializable {
 		fireBlow = new Image(getClass().getResource("images/fireBlow.png").toExternalForm());
 		critical = new Image(getClass().getResource("images/critical.png").toExternalForm());
 		potion = new Image(getClass().getResource("images/potion.png").toExternalForm());
+		ultimate = new Image(getClass().getResource("images/ultimate.png").toExternalForm());
 		
 		String path = "/home/pc16/Desktop/프로젝트mp3/startVs.mp3";
 		String path2 = "/home/pc16/Desktop/프로젝트mp3/selectWappon.mp3";
@@ -109,12 +116,11 @@ public class GameNextStageController implements Initializable {
 		
 		startVs = new MediaPlayer(media);
 		selectedWappon = new MediaPlayer(media2);
-		success = new MediaPlayer(media3);
+		success = new MediaPlayer(media3);     
 		fail = new MediaPlayer(media4);
 		nextPage = new MediaPlayer(media5);
 		
 	}
-	
 	
 	@FXML public void ironMaceClick() {
 		selectLabel.setText("철퇴를 선택하셨습니다.");
@@ -144,6 +150,13 @@ public class GameNextStageController implements Initializable {
 		fightButton.setDisable(false);
 	}
 	@FXML public void fightAction() {
+		selectLabel.setVisible(false);
+		fightButton.setVisible(false);
+		ironMaceButton.setVisible(false);
+		hammerButton.setVisible(false);
+		attackButton.setVisible(true);
+		defenseButton.setVisible(true);
+		
 		startVs.play();
 		fightButton.setDisable(true);
 		animationImage.setImage(vsFight);
@@ -164,7 +177,6 @@ public class GameNextStageController implements Initializable {
 		transition.play(); 
 		
 		transition2 = new TranslateTransition();
-		transition2.setDuration(Duration.millis(500));
 		transition2.setToX(40);
 		transition2.setToY(-30);
 		transition2.setAutoReverse(true);
@@ -174,33 +186,65 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void attackAction() { 
+		if (playerTotHp <= 10) {
+			if (cnt == 0) {
+				ultimateButton.setDisable(false);
+			} else {
+				ultimateButton.setDisable(true);
+			}
+		}
+		attackButton.setDisable(true);
+		defaultAttakBt.setDisable(false);
+		healPButton.setDisable(false);
+		specialButton.setDisable(false);
 		
+		defaultAttakBt.setVisible(true);
+		healPButton.setVisible(true);
+		specialButton.setVisible(true);
+		ultimateButton.setVisible(true);
+
 		String path = "/home/pc16/Desktop/프로젝트mp3/attack.mp3";
-		String path2 = "/home/pc16/Desktop/프로젝트mp3/heal.mp3";
-		String path3 = "/home/pc16/Desktop/프로젝트mp3/water.mp3";
+		String path2 = "/home/pc16/Desktop/프로젝트mp3/water.mp3";
+		String path3 = "/home/pc16/Desktop/프로젝트mp3/heal.mp3";
 		String path4 = "/home/pc16/Desktop/프로젝트mp3/miss.mp3";
-		
+		String path5 = "/home/pc16/Desktop/프로젝트mp3/ultimate.mp3";
+
 		media = new Media(new File(path).toURI().toString());
 		media2 = new Media(new File(path2).toURI().toString());
 		media3 = new Media(new File(path3).toURI().toString());
 		media4 = new Media(new File(path4).toURI().toString());
-		
+		media5 = new Media(new File(path5).toURI().toString());
+
 		attackDefalut = new MediaPlayer(media);
-		heal = new MediaPlayer(media2);
-		waterAttack = new MediaPlayer(media3);
+		waterAttack = new MediaPlayer(media2);
+		healing = new MediaPlayer(media3);
 		miss = new MediaPlayer(media4);
-		
+		ultimateAttack = new MediaPlayer(media5);
+
 		animationImage.setImage(null);
+	}
+	@FXML public void defaultAttackAction() {
+		animationImage.setImage(null);
+		healPButton.setDisable(true);
+		defaultAttakBt.setDisable(true);
+		specialButton.setDisable(true);
+		ultimateButton.setDisable(true);
+		
+		defaultAttakBt.setVisible(false);
+		healPButton.setVisible(false);
+		specialButton.setVisible(false);
+		ultimateButton.setVisible(false);
+
 		int playerAttack = (int) (Math.random() * 4);
 		if (slimeTotHp > 0) {
-			if (playerAttack == 0) {
+			if (playerAttack <= 2) {
 				attackDefalut.play();
 				animationImage.setImage(attack);
 				playerDamaged.setText("");
 				defenseButton.setDisable(false);
 				attackButton.setDisable(true);
 				vsLabel1.setText("<일반공격!>");
-				vsLabel2.setText("플레이어가 화염슬라임에게 20의 데미지를 주었습니다.");
+				vsLabel2.setText("플레이어가 워터슬라임에게 20의 데미지를 주었습니다.");
 				slimeDamaged.setText("-20HP");
 				slimeHp.setText(slimeTotHp - 20 + "HP");
 				temp = slimeTotHp - 20;
@@ -208,48 +252,18 @@ public class GameNextStageController implements Initializable {
 				if (slimeTotHp <= 0) {
 					defenseButton.setDisable(true);
 					resultButton.setDisable(false);
+					resultButton.setVisible(true);
+					attackButton.setVisible(false);
+					defenseButton.setVisible(false);
 				}
-			} else if (playerAttack == 1) {
-				waterAttack.play();
-				animationImage.setImage(spitting);
-				playerDamaged.setText("");
-				defenseButton.setDisable(false);
-				attackButton.setDisable(true);
-				vsLabel1.setText("<물공격!>");
-				vsLabel2.setText("플레이어가 화염슬라임에게 30의 데미지를 주었습니다.");
-				slimeDamaged.setText("-30HP");
-				slimeHp.setText(slimeTotHp - 30 + "HP");
-				temp = slimeTotHp - 30;
-				slimeTotHp = temp;
-				if (slimeTotHp <= 0) {
-					defenseButton.setDisable(true);
-					resultButton.setDisable(false);
-				}
-			} else if (playerAttack == 2) {
-				heal.play();
-				animationImage.setImage(potion);
-				playerDamaged.setText("");
-				defenseButton.setDisable(false);
-				attackButton.setDisable(true);
-				vsLabel1.setText("<화염공격!>");
-				vsLabel2.setText("화염슬라임이 20HP를 회복합니다.");
-				slimeDamaged.setText("+20HP");
-				slimeHp.setText(slimeTotHp + 20 + "HP");
-				temp = slimeTotHp + 20;
-				slimeTotHp = temp;
-				if (slimeTotHp <= 0) {
-					defenseButton.setDisable(true);
-					resultButton.setDisable(false);
-				}
-
-			} else if (playerAttack == 4) {
+			} else if (playerAttack == 3) {
 				miss.play();
 				animationImage.setImage(shield);
 				playerDamaged.setText("");
 				defenseButton.setDisable(false);
 				attackButton.setDisable(true);
 				vsLabel1.setText("<빗나감!>");
-				vsLabel2.setText("플레이어가 파란슬라임에게 아무데미지도 주지 못했습니다.");
+				vsLabel2.setText("플레이어가 워터슬라임에게 아무데미지도 주지 못했습니다.");
 				slimeDamaged.setText("MISS");
 				slimeHp.setText(slimeTotHp + "HP");
 				temp = slimeTotHp;
@@ -257,7 +271,137 @@ public class GameNextStageController implements Initializable {
 				if (slimeTotHp <= 0) {
 					defenseButton.setDisable(true);
 					resultButton.setDisable(false);
+					resultButton.setVisible(true);
+					attackButton.setVisible(false);
+					defenseButton.setVisible(false);
 				}
+			}
+		}
+	}
+	
+	@FXML public void specialAction() {
+		animationImage.setImage(null);
+		healPButton.setDisable(true);
+		defaultAttakBt.setDisable(true);
+		specialButton.setDisable(true);
+		ultimateButton.setDisable(true);
+		
+		defaultAttakBt.setVisible(false);
+		healPButton.setVisible(false);
+		specialButton.setVisible(false);
+		ultimateButton.setVisible(false);
+		
+		int playerAttack = (int) (Math.random() * 2);
+		if (slimeTotHp > 0) { 
+		if (playerAttack == 0) {
+				waterAttack.play();
+				animationImage.setImage(spitting);
+				playerDamaged.setText("");
+				defenseButton.setDisable(false);
+				attackButton.setDisable(true);
+				vsLabel1.setText("<물공격!>");
+				vsLabel2.setText("플레이어가 화염슬라임에게 25의 데미지를 주었습니다.");
+				slimeDamaged.setText("-25HP");
+				slimeHp.setText(slimeTotHp - 25 + "HP");
+				temp = slimeTotHp - 25;
+				slimeTotHp = temp;
+				if (slimeTotHp <= 0) {
+					defenseButton.setDisable(true);
+					resultButton.setDisable(false);
+					resultButton.setVisible(true);
+					attackButton.setVisible(false);
+					defenseButton.setVisible(false);
+				}
+			} else if (playerAttack == 1) {
+				healing.play();
+				animationImage.setImage(potion);
+				playerDamaged.setText("");
+				defenseButton.setDisable(false);
+				attackButton.setDisable(true);
+				vsLabel1.setText("<화염공격!>");
+				vsLabel2.setText("화염슬라임이 10HP를 회복합니다.");
+				slimeDamaged.setText("+10HP");
+				slimeHp.setText(slimeTotHp + 10 + "HP");
+				temp = slimeTotHp + 10      ;
+				slimeTotHp = temp;
+				if (slimeTotHp <= 0) {
+					defenseButton.setDisable(true);
+					resultButton.setDisable(false);
+					resultButton.setVisible(true);
+					attackButton.setVisible(false);
+					defenseButton.setVisible(false);
+				}
+			}
+		}
+	}
+	
+	
+	@FXML public void healPAction() {
+		animationImage.setImage(null);
+		healPButton.setDisable(true);
+		defaultAttakBt.setDisable(true);
+		specialButton.setDisable(true);
+		ultimateButton.setDisable(true);
+		
+		defaultAttakBt.setVisible(false);
+		healPButton.setVisible(false);
+		specialButton.setVisible(false);
+		ultimateButton.setVisible(false);
+		
+		if (slimeTotHp > 0) {
+			healing.play();
+			animationImage.setImage(potion);
+			playerDamaged.setText("");
+			defenseButton.setDisable(false);
+			attackButton.setDisable(true);
+			vsLabel1.setText("<회복포션!>");
+			vsLabel2.setText("플레이어가 체력 10을 회복합니다!");
+			playerDamaged.setText("+10HP");
+			playerHp.setText(playerTotHp + 10 + "HP");
+			temp = playerTotHp + 10;
+			playerTotHp = temp;
+			if (slimeTotHp <= 0) {
+				defenseButton.setDisable(true);
+				resultButton.setDisable(false);
+				resultButton.setVisible(true);
+				attackButton.setVisible(false);
+				defenseButton.setVisible(false);
+			}
+		}
+	}
+	
+	
+	@FXML public void ultimateAction() {
+		cnt = 1;
+		animationImage.setImage(null);
+		healPButton.setDisable(true);
+		defaultAttakBt.setDisable(true);
+		specialButton.setDisable(true);
+		ultimateButton.setDisable(true);
+		
+		defaultAttakBt.setVisible(false);
+		healPButton.setVisible(false);
+		specialButton.setVisible(false);
+		ultimateButton.setVisible(false);
+		
+		if (slimeTotHp > 0) {
+			ultimateAttack.play();
+			animationImage.setImage(ultimate);
+			playerDamaged.setText("");
+			defenseButton.setDisable(false);
+			attackButton.setDisable(true);
+			vsLabel1.setText("<최후의 저항!>");
+			vsLabel2.setText("플레이어가 워터슬라임에게 35의 데미지를 주었습니다.");
+			slimeDamaged.setText("-35HP");
+			slimeHp.setText(slimeTotHp - 35 + "HP");
+			temp = slimeTotHp - 35;
+			slimeTotHp = temp;
+			if (slimeTotHp <= 0) {
+				defenseButton.setDisable(true);
+				resultButton.setDisable(false);
+				resultButton.setVisible(true);
+				attackButton.setVisible(false);
+				defenseButton.setVisible(false);
 			}
 		}
 	}
@@ -292,6 +436,9 @@ public class GameNextStageController implements Initializable {
 				if (playerTotHp <= 0) {
 					attackButton.setDisable(true);
 					resultButton.setDisable(false);
+					resultButton.setVisible(true);
+					attackButton.setVisible(false);
+					defenseButton.setVisible(false);
 				}
 			} else if (slimeAttack == 3) {
 				criticalAttack.play();
@@ -308,6 +455,9 @@ public class GameNextStageController implements Initializable {
 				if (playerTotHp <= 0) {
 					attackButton.setDisable(true);
 					resultButton.setDisable(false);
+					resultButton.setVisible(true);
+					attackButton.setVisible(false);
+					defenseButton.setVisible(false);
 				}
 			} else if (slimeAttack == 4) {
 				miss.play();
@@ -324,15 +474,18 @@ public class GameNextStageController implements Initializable {
 				if (playerTotHp <= 0) {
 					attackButton.setDisable(true);
 					resultButton.setDisable(false);
+					resultButton.setVisible(true);
+					attackButton.setVisible(false);
+					defenseButton.setVisible(false);
 				}
 			}
 		}
 	}
 
-	@FXML public void resultAction() {
+	@FXML public void resultAction() {  
 		animationImage.setImage(null);
 		if (playerTotHp <= 0) {
-			transition2.stop();
+			transition2.stop(); 
 			fail.play();
 			resultButton.setDisable(true);
 			vsLabel1.setText("");
@@ -342,9 +495,11 @@ public class GameNextStageController implements Initializable {
 			playerHp.setText("플레이어 사망");
 			slimeHp.setText("슬라임 승!");
 			restartButton.setDisable(false);
+			resultButton.setVisible(false);
+			restartButton.setVisible(true);
 		}
 		if (slimeTotHp <= 0) {
-			transition.stop();
+			transition.stop(); 
 			success.play();
 			resultButton.setDisable(true);
 			playerDamaged.setText("");
@@ -354,12 +509,14 @@ public class GameNextStageController implements Initializable {
 			playerHp.setText("플레이어 승!");
 			slimeHp.setText("슬라임 사망!");
 			nextStageButton.setDisable(false);
+			resultButton.setVisible(false);
+			nextStageButton.setVisible(true);
 		}
 	}
 
 	@FXML public void nextStageAction() {
-		transition.stop();
-		transition2.stop();
+		transition.stop(); 
+		transition2.stop(); 
 		nextPage.play();
 	     Stage stage = (Stage)nextStageButton.getScene().getWindow();
 	     Parent second;
@@ -376,8 +533,8 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void restartAction() {
-		transition.stop();
-		transition2.stop();
+		transition.stop(); 
+		transition2.stop(); 
 		Stage stage = (Stage)restartButton.getScene().getWindow();
 	     Parent second;
 		try {
@@ -391,5 +548,7 @@ public class GameNextStageController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+
+
 	}
 
