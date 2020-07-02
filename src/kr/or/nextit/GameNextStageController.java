@@ -24,7 +24,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+//3
 public class GameNextStageController implements Initializable {
 	private int slimeTotHp = 100;
 	private int playerTotHp = 100;

@@ -15,7 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
+//4
 public class GameClearController implements Initializable {
 	@FXML
 	Label congraduation;
