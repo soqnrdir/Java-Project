@@ -189,6 +189,8 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void attackAction() { 
+		vsLabel1.setText("<공격을 준비합니다>");
+		vsLabel2.setText("무엇을 선택 하시겠습니까?");
 		if (playerTotHp <= 10) {
 			if (cnt == 0) {
 				ultimateButton.setDisable(false);
