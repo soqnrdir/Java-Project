@@ -54,7 +54,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="vsLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="154.0" prefHeight="26.0" prefWidth="612.0">
+      <Label fx:id="vsLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="150.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" visible="false">
          <font>
             <Font size="16.0" />
          </font></Label>
@@ -84,7 +84,7 @@
          </font>
       </Label>
       <Button fx:id="axeButton" layoutX="547.0" layoutY="41.0" mnemonicParsing="false" onAction="#axeClick" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: white;" text="도끼" />
-      <Label fx:id="vsLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="128.0" prefHeight="26.0" prefWidth="612.0" textFill="#074bd3">
+      <Label fx:id="vsLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="128.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" textFill="#074bd3" visible="false">
          <font>
             <Font size="16.0" />
          </font>

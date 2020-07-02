@@ -216,6 +216,10 @@ public class GameStartController implements Initializable {
 
 	@FXML
 	public void attackAction() {
+		vsLabel1.setText("<LV.1 START!>");
+		vsLabel2.setText("워터슬라임 두둥등장!");
+		vsLabel1.setVisible(true);
+		vsLabel2.setVisible(true);
 		
 		if (playerTotHp <= 10) {
 			if (cnt == 0) {
@@ -523,6 +527,8 @@ public class GameStartController implements Initializable {
 
 	@FXML
 	public void resultAction() {
+		vsLabel1.setVisible(false);
+		vsLabel2.setVisible(false);
 		animationImage.setImage(null);
 		if (playerTotHp <= 0) {
 			transition2.stop();

@@ -16,52 +16,55 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-public class GameClearController implements Initializable{
-	@FXML Label congraduation;
-	@FXML ImageView slime1Image;
-	@FXML ImageView slime2image;
+public class GameClearController implements Initializable {
+	@FXML
+	Label congraduation;
+	@FXML
+	ImageView slime1Image;
+	@FXML
+	ImageView slime2image;
 	private Image slime1;
 	private Image slime2;
 	private TranslateTransition transition;
 	private MediaPlayer clear;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		String path = "/home/pc16/Desktop/프로젝트mp3/clear.mp3";
 		Media media = new Media(new File(path).toURI().toString());
 		clear = new MediaPlayer(media);
 		clear.play();
-		
+
 		slime1 = new Image(getClass().getResource("images/waterSlime.png").toExternalForm());
 		slime2 = new Image(getClass().getResource("images/fireSlime.png").toExternalForm());
-		
+
 		slime1Image.setImage(slime1);
 		slime2image.setImage(slime2);
-		
-	    transition = new TranslateTransition();
+
+		transition = new TranslateTransition();
 		transition.setDuration(Duration.millis(1000));
 		transition.setToX(800);
 		transition.setAutoReverse(true);
 		transition.setCycleCount(Animation.INDEFINITE);
 		transition.setNode(slime1Image);
 		transition.play();
-		
+
 		transition = new TranslateTransition();
 		transition.setDuration(Duration.millis(1000));
-		transition.setToX(-750); 
+		transition.setToX(-750);
 		transition.setAutoReverse(true);
 		transition.setCycleCount(Animation.INDEFINITE);
 		transition.setNode(slime2image);
 		transition.play();
-		
-		
+
 		transition = new TranslateTransition();
 		transition.setDuration(Duration.millis(500));
-		transition.setToY(-70); 
+		transition.setToY(-70);
 		transition.setAutoReverse(true);
 		transition.setCycleCount(Animation.INDEFINITE);
 		transition.setNode(congraduation);
-		transition.play(); 
+		transition.play();
 	}
 
 	@FXML
@@ -69,9 +72,4 @@ public class GameClearController implements Initializable{
 		clear.stop();
 		Platform.exit();
 	}
-
-
-		
-
 }
- 

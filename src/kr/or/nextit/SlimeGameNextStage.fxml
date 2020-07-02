@@ -71,16 +71,6 @@
          </font>
       </Label>
       <ImageView fx:id="animationImage" fitHeight="133.0" fitWidth="129.0" layoutX="276.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="vsLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="164.0" prefHeight="26.0" prefWidth="612.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="vsLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="138.0" prefHeight="26.0" prefWidth="612.0" textFill="#074bd3">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
       <Label fx:id="slime2Name" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="381.0" prefHeight="41.0" prefWidth="188.0" textFill="RED">
          <font>
             <Font size="18.0" />
@@ -111,5 +101,15 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Label fx:id="vsLabel21" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="160.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="vsLabel11" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="138.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" textFill="#074bd3" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -183,6 +183,10 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void attackAction() { 
+		vsLabel1.setText("<LV.2 START!>");
+		vsLabel2.setText("화염슬라임 두둥등장!");
+		vsLabel1.setVisible(true);
+		vsLabel2.setVisible(true);
 		if (playerTotHp <= 10) {
 			if (cnt == 0) {
 				ultimateButton.setDisable(false);
@@ -479,7 +483,9 @@ public class GameNextStageController implements Initializable {
 		}
 	}
 
-	@FXML public void resultAction() {  
+	@FXML public void resultAction() { 
+		vsLabel1.setVisible(false);
+		vsLabel2.setVisible(false);
 		animationImage.setImage(null);
 		if (playerTotHp <= 0) {
 			transition2.stop(); 
