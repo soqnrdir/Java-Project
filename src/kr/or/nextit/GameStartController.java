@@ -178,6 +178,11 @@ public class GameStartController implements Initializable {
 
 	@FXML
 	public void fightAction() {
+		vsLabel1.setText("<LV.1 START!>");
+		vsLabel2.setText("워터슬라임 두둥등장!");
+		
+		vsLabel1.setVisible(true);
+		vsLabel2.setVisible(true);
 		selectLabel.setVisible(false);
 		fightButton.setVisible(false);
 		knifeButton.setVisible(false);
@@ -216,11 +221,6 @@ public class GameStartController implements Initializable {
 
 	@FXML
 	public void attackAction() {
-		vsLabel1.setText("<LV.1 START!>");
-		vsLabel2.setText("워터슬라임 두둥등장!");
-		vsLabel1.setVisible(true);
-		vsLabel2.setVisible(true);
-		
 		if (playerTotHp <= 10) {
 			if (cnt == 0) {
 				ultimateButton.setDisable(false);

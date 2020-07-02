@@ -17,7 +17,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Kill the Slime");
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch(Exception e) { 
 			e.printStackTrace(); 
 		}
 	}

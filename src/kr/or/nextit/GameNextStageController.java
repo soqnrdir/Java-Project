@@ -147,6 +147,12 @@ public class GameNextStageController implements Initializable {
 		fightButton.setDisable(false);
 	}
 	@FXML public void fightAction() {
+		
+		vsLabel1.setText("<LV.2 START!>");
+		vsLabel2.setText("화염슬라임 두둥등장!");
+		
+		vsLabel1.setVisible(true);
+		vsLabel2.setVisible(true);
 		selectLabel.setVisible(false);
 		fightButton.setVisible(false);
 		ironMaceButton.setVisible(false);
@@ -183,10 +189,6 @@ public class GameNextStageController implements Initializable {
 	}
 
 	@FXML public void attackAction() { 
-		vsLabel1.setText("<LV.2 START!>");
-		vsLabel2.setText("화염슬라임 두둥등장!");
-		vsLabel1.setVisible(true);
-		vsLabel2.setVisible(true);
 		if (playerTotHp <= 10) {
 			if (cnt == 0) {
 				ultimateButton.setDisable(false);

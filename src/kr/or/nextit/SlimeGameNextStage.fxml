@@ -101,12 +101,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Label fx:id="vsLabel21" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="160.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" visible="false">
+      <Label fx:id="vsLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="160.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" visible="false">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="vsLabel11" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="138.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" textFill="#074bd3" visible="false">
+      <Label fx:id="vsLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="138.0" prefHeight="26.0" prefWidth="478.0" style="-fx-background-color: white;" textFill="#074bd3" visible="false">
          <font>
             <Font size="16.0" />
          </font>
