@@ -9,9 +9,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.nextit.GameClearController">
+<AnchorPane prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.or.nextit.GameClearController">
    <children>
-      <Label fx:id="congraduation" alignment="CENTER" contentDisplay="CENTER" layoutY="409.0" prefHeight="130.0" prefWidth="373.0" text="      축하합니다!!&#10;STAGE ALL CLEAR!&#10;&#10;">
+      <Label fx:id="congraduation" alignment="CENTER" contentDisplay="CENTER" layoutX="582.0" layoutY="102.0" prefHeight="130.0" prefWidth="373.0" text="      축하합니다!!&#10;STAGE ALL CLEAR!&#10;&#10;">
          <font>
             <Font size="36.0" />
          </font>
@@ -28,8 +28,8 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button layoutX="91.0" layoutY="567.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="51.0" prefWidth="153.0" style="-fx-background-color: gold;" text="게임종료" />
-      <ImageView fx:id="slime1Image" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="slime2image" fitHeight="150.0" fitWidth="200.0" layoutX="273.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="339.0" layoutY="793.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="51.0" prefWidth="307.0" style="-fx-background-color: gold;" text="게임종료" />
+      <ImageView fx:id="slime1Image" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="slime2image" fitHeight="150.0" fitWidth="200.0" layoutX="769.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

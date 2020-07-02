@@ -79,7 +79,6 @@ public class GameNextStageController implements Initializable {
 	private MediaPlayer waterAttack;
 	private MediaPlayer miss;
 	private MediaPlayer criticalAttack;
-	private MediaPlayer nextPage;
 	private MediaPlayer ultimateAttack;
 	private TranslateTransition transition;
 	private TranslateTransition transition2;
@@ -106,19 +105,17 @@ public class GameNextStageController implements Initializable {
 		String path2 = "/home/pc16/Desktop/프로젝트mp3/selectWappon.mp3";
 		String path3 = "/home/pc16/Desktop/프로젝트mp3/Tada.mp3";
 		String path4 = "/home/pc16/Desktop/프로젝트mp3/fail.mp3";
-		String path5 = "/home/pc16/Desktop/프로젝트mp3/clear.mp3";
 		
 		media = new Media(new File(path).toURI().toString());
 		media2 = new Media(new File(path2).toURI().toString());
 		media3 = new Media(new File(path3).toURI().toString());
 		media4 = new Media(new File(path4).toURI().toString());
-		media5 = new Media(new File(path5).toURI().toString());
+
 		
 		startVs = new MediaPlayer(media);
 		selectedWappon = new MediaPlayer(media2);
 		success = new MediaPlayer(media3);     
 		fail = new MediaPlayer(media4);
-		nextPage = new MediaPlayer(media5);
 		
 	}
 	
@@ -517,7 +514,6 @@ public class GameNextStageController implements Initializable {
 	@FXML public void nextStageAction() {
 		transition.stop(); 
 		transition2.stop(); 
-		nextPage.play();
 	     Stage stage = (Stage)nextStageButton.getScene().getWindow();
 	     Parent second;
 		try {
