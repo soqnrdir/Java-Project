@@ -6,14 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
-//1
+
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Slime.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("SlimeGameClear.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application4.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Kill the Slime");
 			primaryStage.show();

@@ -25,7 +25,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-//2
+
 public class GameStartController implements Initializable {
 	private int slimeTotHp = 100;
 	private int playerTotHp = 100;
@@ -232,37 +232,43 @@ public class GameStartController implements Initializable {
 		}
 		attackButton.setDisable(true);
 		defaultAttakBt.setDisable(false);
+		
+		if(playerTotHp <=90) {
 		healPButton.setDisable(false);
+		}
+		
+		if(slimeTotHp <= 90) {
 		specialButton.setDisable(false);
+		}
 		
 		defaultAttakBt.setVisible(true);
 		healPButton.setVisible(true);
 		specialButton.setVisible(true);
 		ultimateButton.setVisible(true);
 
-		String path = "/home/pc16/Desktop/프로젝트mp3/attack.mp3";
-		String path2 = "/home/pc16/Desktop/프로젝트mp3/fire.mp3";
-		String path3 = "/home/pc16/Desktop/프로젝트mp3/heal.mp3";
-		String path4 = "/home/pc16/Desktop/프로젝트mp3/miss.mp3";
-		String path5 = "/home/pc16/Desktop/프로젝트mp3/ultimate.mp3";
+		String path = "/home/pc16/Desktop/프로젝트mp3/heal.mp3";
+		String path2 = "/home/pc16/Desktop/프로젝트mp3/ultimate.mp3";
 
 		media = new Media(new File(path).toURI().toString());
 		media2 = new Media(new File(path2).toURI().toString());
-		media3 = new Media(new File(path3).toURI().toString());
-		media4 = new Media(new File(path4).toURI().toString());
-		media5 = new Media(new File(path5).toURI().toString());
 
-		attackDefalut = new MediaPlayer(media);
-		fireAttack = new MediaPlayer(media2);
-		healing = new MediaPlayer(media3);
-		miss = new MediaPlayer(media4);
-		ultimateAttack = new MediaPlayer(media5);
-
+		healing = new MediaPlayer(media);
+		ultimateAttack = new MediaPlayer(media2);
+		
 		animationImage.setImage(null);
 	}
 
 	@FXML
 	public void defaultAttackAction() {
+		String path = "/home/pc16/Desktop/프로젝트mp3/attack.mp3";
+		String path2 = "/home/pc16/Desktop/프로젝트mp3/miss.mp3";
+		
+		media = new Media(new File(path).toURI().toString());
+		media2 = new Media(new File(path2).toURI().toString());
+		
+		attackDefalut = new MediaPlayer(media);
+		miss = new MediaPlayer(media2);
+		
 		animationImage.setImage(null);
 		healPButton.setDisable(true);
 		defaultAttakBt.setDisable(true);
@@ -273,7 +279,6 @@ public class GameStartController implements Initializable {
 		healPButton.setVisible(false);
 		specialButton.setVisible(false);
 		ultimateButton.setVisible(false);
-
 
 		int playerAttack = (int) (Math.random() * 4);
 		if (slimeTotHp > 0) {
@@ -321,6 +326,15 @@ public class GameStartController implements Initializable {
 
 	@FXML
 	public void specialAction() {
+		String path = "/home/pc16/Desktop/프로젝트mp3/fire.mp3";
+		String path2 = "/home/pc16/Desktop/프로젝트mp3/heal.mp3";
+		
+		media = new Media(new File(path).toURI().toString());
+		media2 = new Media(new File(path2).toURI().toString());
+		
+		fireAttack = new MediaPlayer(media);
+		healing = new MediaPlayer(media2);
+		
 		animationImage.setImage(null);
 		healPButton.setDisable(true);
 		defaultAttakBt.setDisable(true);
@@ -365,13 +379,6 @@ public class GameStartController implements Initializable {
 				slimeHp.setText(slimeTotHp + 10 + "HP");
 				temp = slimeTotHp + 10;
 				slimeTotHp = temp;
-				if (slimeTotHp <= 0) {
-					defenseButton.setDisable(true);
-					resultButton.setDisable(false);
-					resultButton.setVisible(true);
-					attackButton.setVisible(false);
-					defenseButton.setVisible(false);
-				}
 			}
 		}
 	}
@@ -401,13 +408,7 @@ public class GameStartController implements Initializable {
 			playerHp.setText(playerTotHp + 10 + "HP");
 			temp = playerTotHp + 10;
 			playerTotHp = temp;
-			if (slimeTotHp <= 0) {
-				defenseButton.setDisable(true);
-				resultButton.setDisable(false);
-				resultButton.setVisible(true);
-				attackButton.setVisible(false);
-				defenseButton.setVisible(false);
-			}
+
 		}
 	}
 
